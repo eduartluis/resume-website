@@ -6,7 +6,7 @@ Here is Eduart's complete professional background:
 
 ## Personal Info
 - Full Name: Eduart Luis Doria Acevedo
-- Location: Provo, UT 84606
+- Location: Pflugerville, TX 78660
 - Phone: +1 571-901-7180
 - Email: eduartluis@gmail.com
 - LinkedIn: https://www.linkedin.com/in/eduartluis/
