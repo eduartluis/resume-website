@@ -3,6 +3,7 @@ const express = require('express');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const path = require('path');
 const fs = require('fs');
+const QRCode = require('qrcode');
 
 const app = express();
 app.use(express.json());
@@ -11,6 +12,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 const SYSTEM_PROMPT = fs.readFileSync(path.join(__dirname, 'prompt.md'), 'utf-8');
+
+// Generate LinkedIn QR code at startup if it doesn't exist
+const qrPath = path.join(__dirname, 'public', 'linkedin-qr.png');
+if (!fs.existsSync(qrPath)) {
+  QRCode.toFile(qrPath, 'https://www.linkedin.com/in/eduartluis/', {
+    width: 300,
+    color: { dark: '#0f2444', light: '#ffffff' },
+  }).catch(err => console.error('QR generation failed:', err));
+}
 
 app.post('/api/chat', async (req, res) => {
   const { messages } = req.body;
