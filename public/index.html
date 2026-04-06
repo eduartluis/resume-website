@@ -452,12 +452,56 @@
     #send-btn svg { width: 18px; height: 18px; fill: white; }
 
     /* ── RESPONSIVE ── */
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      .header-inner { padding: 0 20px; }
+      main { padding: 32px 20px 80px; }
+      .header-text h1 { font-size: 1.85rem; }
+      .skills-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+    }
+
+    /* Mobile */
     @media (max-width: 640px) {
-      .header-inner { flex-direction: column; gap: 16px; }
-      .timeline-item { grid-template-columns: 100px 1fr; }
+      /* Header */
+      .header-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+        padding: 0 16px;
+      }
+      #qr-link { display: none; } /* hide QR code on mobile */
+      .header-meta { justify-content: center; gap: 12px; }
+      .header-text h1 { font-size: 1.5rem; }
+      .header-text .title { font-size: 0.88rem; }
+
+      /* Main */
+      main { padding: 28px 16px 80px; }
+
+      /* Summary */
+      .summary-text { font-size: 0.95rem; }
+
+      /* Skills */
+      .skills-grid { grid-template-columns: 1fr; }
+
+      /* Timeline: single-column stacked layout */
+      .timeline-item {
+        display: block;
+        padding-left: 20px;
+        border-left: 2px solid var(--border);
+        padding-bottom: 24px;
+      }
+      .timeline-item:not(:last-child)::before { display: none; }
+      .timeline-date { text-align: left; margin-bottom: 6px; }
+      .timeline-dot { left: -6px; top: 5px; transform: none; }
+      .timeline-body { padding-left: 0; margin-top: 4px; }
+      .timeline-body .role { font-size: 0.98rem; }
+
+      /* Education */
       .edu-grid { grid-template-columns: 1fr; }
 
-      /* Mobile: hide inline section, show floating bubble */
+      /* Chat: hide inline section, show floating bubble */
       #chat-section { display: none; }
 
       #chat-bubble {
@@ -521,7 +565,7 @@
         <a href="https://www.linkedin.com/in/eduartluis" target="_blank">🔗 LinkedIn</a>
       </div>
     </div>
-    <a href="https://www.linkedin.com/in/eduartluis" target="_blank" title="Connect on LinkedIn" style="margin-left:auto;flex-shrink:0;">
+    <a id="qr-link" href="https://www.linkedin.com/in/eduartluis" target="_blank" title="Connect on LinkedIn" style="margin-left:auto;flex-shrink:0;">
       <img src="/linkedin-qr.png" alt="LinkedIn QR Code" style="width:88px;height:88px;border-radius:10px;border:3px solid rgba(255,255,255,0.3);" />
     </a>
   </div>
